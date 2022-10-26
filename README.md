@@ -24,6 +24,3 @@ Una app hecha para aprender async y await con APIs.
 
 - **API IPGeolocation (para obtener coordenadas geográficas a partir del IP)**  
   https://api.ipgeolocation.io 
-
-## Otros servicios utilizados:
-- Para solucionar el problema de CORS en modo de desarrollo utilice "CORS Anywhere": https://cors-anywhere.herokuapp.com/corsdemo

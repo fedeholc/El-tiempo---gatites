@@ -1,7 +1,3 @@
-// cambiar CORSAnywhere a "" cuando se haga el deploy
-// en modo dev/local usar CORSAnywhere = "https://cors-anywhere.herokuapp.com/";
-const CORSAnywhere = "";
-
 const searchButton = document.getElementById("botonbuscar");
 const textToSearch = document.getElementById("textobuscar");
 let gifOffsetCounter = 0;
@@ -84,8 +80,6 @@ async function gifSearch() {
 
     document.getElementById("gif-del-dia").src =
       gifData.data[0].images.original.url;
-
-    console.log(gifData);
   } catch (error) {
     console.log("Catched Error:", error);
   }
@@ -96,13 +90,7 @@ async function gifSearch() {
 async function searchLocation(keyword) {
   try {
     const response = await fetch(
-      `${CORSAnywhere}https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${keyword}&inputtype=textquery&fields=formatted_address%2Cname%2Crating%2Copening_hours%2Cgeometry&key=AIzaSyDvQsoVGpd4XzbWl9k10XJj4lww8ycGGXY`,
-      {
-        mode: "cors",
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
-      }
+      `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${keyword}&inputtype=textquery&fields=formatted_address%2Cname%2Crating%2Copening_hours%2Cgeometry&key=AIzaSyDvQsoVGpd4XzbWl9k10XJj4lww8ycGGXY`
     );
 
     if (response.ok === false) {
@@ -127,13 +115,7 @@ async function searchLocation(keyword) {
     // tres dígitos)
     let nowTimeStamp = (Date.now() / 1000).toFixed(0);
     const responseTZ = await fetch(
-      `${CORSAnywhere}https://maps.googleapis.com/maps/api/timezone/json?location=${lat}%2C${lng}&timestamp=${nowTimeStamp}&key=AIzaSyDvQsoVGpd4XzbWl9k10XJj4lww8ycGGXY`,
-      {
-        mode: "cors",
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
-      }
+      `https://maps.googleapis.com/maps/api/timezone/json?location=${lat}%2C${lng}&timestamp=${nowTimeStamp}&key=AIzaSyDvQsoVGpd4XzbWl9k10XJj4lww8ycGGXY`
     );
 
     if (responseTZ.ok === false) {
@@ -160,13 +142,7 @@ async function searchLocation(keyword) {
 async function getIPData() {
   try {
     const response = await fetch(
-      `https://api.ipgeolocation.io/ipgeo?apiKey=ee852e03cf364a7d93d81bb3c405db9b`,
-      {
-        mode: "cors",
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
-      }
+      `https://api.ipgeolocation.io/ipgeo?apiKey=ee852e03cf364a7d93d81bb3c405db9b`
     );
 
     if (response.ok === false) {
@@ -227,13 +203,7 @@ function updateCurrentDate(elementId) {
 async function getUserIPData() {
   try {
     const response = await fetch(
-      `https://api.ipgeolocation.io/ipgeo?apiKey=ee852e03cf364a7d93d81bb3c405db9b`,
-      {
-        mode: "cors",
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
-      }
+      `https://api.ipgeolocation.io/ipgeo?apiKey=ee852e03cf364a7d93d81bb3c405db9b`
     );
     if (response.ok === false) {
       throw new Error("Status code error :" + response.status);
@@ -259,8 +229,7 @@ function renderUserIPData(ipData) {
 async function getUserWeatherData(lat, lon) {
   try {
     const response = await fetch(
-      `${CORSAnywhere}https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=es&appid=f882dd3db52c156b91ba3c5c824630a0`,
-   
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=es&appid=f882dd3db52c156b91ba3c5c824630a0`
     );
 
     if (response.ok === false) {
@@ -329,7 +298,7 @@ function renderWeatherData(userWeatherData) {
     "Puesta del sol: " + timeText + "hs";
 
   document.getElementById("weather-icon").src =
-    "http://openweathermap.org/img/wn/" +
+    "https://openweathermap.org/img/wn/" +
     userWeatherData.weather[0].icon +
     "@2x.png";
 
