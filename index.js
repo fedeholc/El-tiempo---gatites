@@ -260,12 +260,7 @@ async function getUserWeatherData(lat, lon) {
   try {
     const response = await fetch(
       `${CORSAnywhere}https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=es&appid=f882dd3db52c156b91ba3c5c824630a0`,
-      {
-        mode: "cors",
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
-      }
+   
     );
 
     if (response.ok === false) {
