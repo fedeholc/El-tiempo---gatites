@@ -88,7 +88,7 @@ async function gifSearch() {
 // También usa la que devuelve la Time Zone según ubicación
 async function searchLocation(keyword) {
   try {
-    //https://cors-anywhere.herokuapp.com/
+    //
     const response = await fetch(
       `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${keyword}&inputtype=textquery&fields=formatted_address%2Cname%2Crating%2Copening_hours%2Cgeometry&key=AIzaSyDvQsoVGpd4XzbWl9k10XJj4lww8ycGGXY`,
       {
