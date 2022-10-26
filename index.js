@@ -1,5 +1,6 @@
 // cambiar CORSAnywhere a "" cuando se haga el deploy
-const CORSAnywhere = "https://cors-anywhere.herokuapp.com/";
+// en modo dev/local usar CORSAnywhere = "https://cors-anywhere.herokuapp.com/";
+const CORSAnywhere = "";
 
 const searchButton = document.getElementById("botonbuscar");
 const textToSearch = document.getElementById("textobuscar");
