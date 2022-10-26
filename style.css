@@ -1,0 +1,254 @@
+
+
+@media (max-width: 650px) {
+
+  #weather-min,
+  #weather-max,
+  #weather-st {
+    width: 100%;
+  }
+
+  #weather-st {
+    margin-top: -1.5rem;
+  }
+
+  #cont-weather-row2-col1,
+  #cont-weather-row2-col2 {
+    width: 80%;
+  }
+}
+
+@media (min-width: 650px) {
+  #weather-min,
+  #weather-max {
+    width: 25%
+  }
+
+  #weather-st {
+    width: 45%;
+  }
+
+  #cont-weather-row2-col1,
+  #cont-weather-row2-col2 {
+    width: 50%;
+  }
+}
+
+:root {
+  --yellow: #ffbe0b;
+  --orange: #fb5607;
+  --fucsia: #ff006e;
+  --purple: #8338ec;
+  --lightblue: #3a86ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 300px;
+  font-family: "Noto Serif Devanagari", serif;
+}
+
+#centrador {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+#principal {
+
+  margin: 1rem 1rem 0rem 1rem;
+  width: clamp(300px, 90%, 650px);
+  background-color: white;
+}
+
+#cont-gif {
+  text-align: center;
+  border: 2px solid var(--lightblue);
+  padding: 1rem 0.5rem 1rem 0.5rem;
+
+  margin: 1rem;
+  box-shadow: 4px 4px 0px 1px var(--lightblue);
+  font-family: "JetBrains Mono", monospace;
+  font-weight: bold;
+}
+
+#gif-del-dia {
+  max-width: 90%;
+  max-height: 400px;
+  margin: 1rem;
+
+}
+
+#cont-buscar {
+  text-align: center;
+  border: 2px solid var(--yellow);
+  padding: 1rem 0.5rem 1rem 0.5rem;
+
+  margin: 1rem;
+  box-shadow: 4px 4px 0px 1px var(--yellow);
+  font-family: "JetBrains Mono", monospace;
+  font-weight: bold;
+}
+
+#cont-buscar>input {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: black;
+  padding: 0.2rem;
+  border: 1px solid var(--lightblue);
+}
+
+#cont-buscar>button {
+  padding: 0.3rem;
+
+  background-color: var(--yellow);
+  color: black;
+  font-weight: bold;
+  border: 1px solid var(--yellow);
+  border-radius: 5%;
+}
+
+#cont-buscar > button:hover {
+  border: 1px solid black;
+}
+
+#cont-ubicacion {
+  text-align: right;
+  border: 2px solid var(--fucsia);
+  margin: 1rem;
+  padding: 1rem;
+  box-shadow: 4px 4px 0px 1px var(--fucsia);
+}
+
+#cont-weather {
+  margin: 1rem; /* no quitar! */
+  border: 2px solid var(--purple);
+  box-shadow: 4px 4px 0px 1px var(--purple);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#cont-weather-row1 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem;
+  width: 100%;
+}
+
+#cont-weather-description {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#hr1 {
+  margin-top: 0.5rem;
+  border-bottom: 1px solid var(--lightblue);
+  width: 90%;
+}
+
+#cont-weather-row2 {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.8rem;
+  width: 96%;
+  padding: 0rem 2rem 1rem 2rem;
+}
+
+
+#weather-description {
+  font-size: 2rem;
+}
+
+#cont-weather-row2-col1>p,
+#cont-weather-row2-col2>p {
+  padding: 0.2rem;
+  margin: 0.4rem;
+  background-color: rgba(128, 128, 128, 0.1);
+}
+
+#weather-icon {
+  margin: -1rem -0.5rem -1rem -1rem;
+}
+
+
+#weather-min,
+#weather-max,
+#weather-st {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  font-weight: bold;
+  font-family: "JetBrains Mono", monospace;
+}
+
+#weather-st-number {
+  font-size: 7rem;
+  font-family: "Noto Serif Devanagari", serif;
+  font-weight: bold;
+  margin-bottom: -4rem;
+}
+
+#weather-max-number,
+#weather-min-number {
+  font-size: 3rem;
+  font-family: "Noto Serif Devanagari", serif;
+  font-weight: normal;
+}
+
+#fecha {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+#lugar {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+#footer {
+  margin-top: 3rem;
+  padding: 1rem 1rem 1rem 1rem;
+  text-align: center;
+  color: gray;
+  border-color: gray;
+  border-top: 1px solid;
+  background: white;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+}
+
+#footer > a {
+  color: gray;
+}

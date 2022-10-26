@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Montserrat&family=Noto+Serif+Devanagari&display=swap"
+    rel="stylesheet" />
+
+  <script src="index.js" defer></script>
+
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <title>El tiempo & gatites</title>
+</head>
+
+<body>
+  <div id="centrador">
+    <div id="principal">
+      <div id="cont-ubicacion">
+        <div id="fecha">Hora: --</div>
+        <div id="lugar">Ubicación: --</div>
+      </div>
+      <div id="cont-weather">
+        <div id="cont-weather-row1">
+          <div id="weather-min">
+            <div id="weather-min-text">Mínima 🥶</div>
+            <div id="weather-min-number">--</div>
+          </div>
+          <div id="weather-st">
+            <div>Sensación Térmica (ºC)</div>
+            <div id="weather-st-number">--</div>
+          </div>
+          <div id="weather-max">
+            <div id="weather-max-text">Máxima 🥵</div>
+            <div id="weather-max-number">--</div>
+          </div>
+          <div id="cont-weather-description">
+            <div>
+              <img id="weather-icon" alt="icono del clima" src="http://openweathermap.org/img/wn/10d@2x.png">
+            </div>
+            <div id="weather-description">Descripción --</div>
+          </div>
+          <div id="hr1"></div>
+        </div>
+        <div id="cont-weather-row2">
+          <div id="cont-weather-row2-col1">
+            <p id="weather-pressure">Presión: -</p>
+            <p id="weather-clouds">Nubosidad: -%</p>
+            <p id="weather-humidity">Humedad: -%</p>
+            <p id="weather-visibility">Visibilidad: 0- </p>
+          </div>
+          <div id="cont-weather-row2-col2">
+            <p id="weather-wind-speed">Velocidad del viento: -km/h </p>
+            <p id="weather-wind-deg">Dirección del viento: -º</p>
+            <p id="weather-sunrise">Salida del sol: -am </p>
+            <p id="weather-sunset">Puesta del sol: -pm </p>
+          </div>
+        </div>
+      </div>
+      <div id="cont-gif">
+        <p>Tu GIF del día</p>
+        <img alt="GIF del día" id="gif-del-dia">
+      </div>
+      <div id="cont-buscar">
+        <p>Cambiar de ubicación geográfica</p>
+        <input type="text" id="textobuscar" />
+
+        <button id="botonbuscar">Buscar</button>
+        <div id="nueva-ubicacion"></div>
+      </div>
+
+      <div id="footer">2022 - Federico Holc -
+        <a href="http://github.com/fedeholc">github/fedeholc</a>
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+</body>
+
+</html>
