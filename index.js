@@ -69,8 +69,7 @@ async function gifSearch() {
 
     gifOffsetCounter++;
     const response = await fetch(
-      `https://api.giphy.com/v1/gifs/search?api_key=ifIvKli8qBbUaBparQ7JtmyCoB4XtzHH&q=${gifSearchKeyword}&limit=1&offset=${gifOffsetCounter}&rating=r`,
-      { mode: "cors" }
+      `https://api.giphy.com/v1/gifs/search?api_key=ifIvKli8qBbUaBparQ7JtmyCoB4XtzHH&q=${gifSearchKeyword}&limit=1&offset=${gifOffsetCounter}&rating=r`
     );
 
     if (response.ok === false) {
@@ -89,8 +88,15 @@ async function gifSearch() {
 // También usa la que devuelve la Time Zone según ubicación
 async function searchLocation(keyword) {
   try {
+    //https://cors-anywhere.herokuapp.com/
     const response = await fetch(
-      `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${keyword}&inputtype=textquery&fields=formatted_address%2Cname%2Crating%2Copening_hours%2Cgeometry&key=AIzaSyDvQsoVGpd4XzbWl9k10XJj4lww8ycGGXY`
+      `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${keyword}&inputtype=textquery&fields=formatted_address%2Cname%2Crating%2Copening_hours%2Cgeometry&key=AIzaSyDvQsoVGpd4XzbWl9k10XJj4lww8ycGGXY`,
+      {
+        mode: "cors",
+        headers: {
+          "Access-Control-Allow-Origin": "https://fedeholc.github.io/*",
+        },
+      }
     );
 
     if (response.ok === false) {
