@@ -90,7 +90,7 @@ async function searchLocation(keyword) {
   try {
    
     const response = await fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${keyword}&limit=5&appid=f882dd3db52c156b91ba3c5c824630a0`
+      `https://api.openweathermap.org/geo/1.0/direct?q=${keyword}&limit=5&appid=f882dd3db52c156b91ba3c5c824630a0`
     );
 
     if (response.ok === false) {
