@@ -88,7 +88,6 @@ async function gifSearch() {
 // También usa la que devuelve la Time Zone según ubicación
 async function searchLocation(keyword) {
   try {
-   
     const response = await fetch(
       `https://api.openweathermap.org/geo/1.0/direct?q=${keyword}&limit=5&appid=f882dd3db52c156b91ba3c5c824630a0`
     );
@@ -109,16 +108,17 @@ async function searchLocation(keyword) {
 
     let lat = placeData.lat;
     let lng = placeData.lon;
-    console.log(placeData);
-    document.getElementById("lugar").textContent =
-      placeData.name + ", " + placeData.state + ", " + placeData.country;
+    let nuevaUbicacion = placeData.name;
+    if (placeData.state !== undefined) {
+      nuevaUbicacion += ", " + placeData.state;
+    }
+    if (placeData.country !== undefined) {
+      nuevaUbicacion += ", " + placeData.country;
+    }
+ 
+    document.getElementById("lugar").textContent = nuevaUbicacion;
     document.getElementById("nueva-ubicacion").textContent =
-      "Nueva ubicación: " +
-      placeData.name +
-      ", " +
-      placeData.state +
-      ", " +
-      placeData.country;
+      "Nueva ubicación: " + nuevaUbicacion;
 
     userWeatherData = await getUserWeatherData(lat, lng);
     renderWeatherData(userWeatherData);
