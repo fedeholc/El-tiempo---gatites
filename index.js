@@ -88,29 +88,37 @@ async function gifSearch() {
 // También usa la que devuelve la Time Zone según ubicación
 async function searchLocation(keyword) {
   try {
-    //
+   
     const response = await fetch(
-      `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${keyword}&inputtype=textquery&fields=formatted_address%2Cname%2Crating%2Copening_hours%2Cgeometry&key=AIzaSyDvQsoVGpd4XzbWl9k10XJj4lww8ycGGXY`,
-      {
-        mode: "cors",
-        headers: {
-          "Access-Control-Allow-Origin": "https://fedeholc.github.io/*",
-        },
-      }
+      `http://api.openweathermap.org/geo/1.0/direct?q=${keyword}&limit=5&appid=f882dd3db52c156b91ba3c5c824630a0`
     );
 
     if (response.ok === false) {
-      throw new Error("Status code error :" + response.status);
+      throw new Error("Status code error:" + response.status);
     }
     const placeDataResponse = await response.json();
-    const placeData = placeDataResponse.candidates[0];
 
-    let lat = placeData.geometry.location.lat;
-    let lng = placeData.geometry.location.lng;
+    if (placeDataResponse.length == 0) {
+      document.getElementById("nueva-ubicacion").textContent =
+        "No se encontró la ubicación ingresada. Buscar completando nombre de la ciudad, estado y país, separados por una coma.";
 
-    document.getElementById("lugar").textContent = placeData.formatted_address;
+      throw new Error("Ubicación no encontrada");
+    }
+
+    const placeData = placeDataResponse[0];
+
+    let lat = placeData.lat;
+    let lng = placeData.lon;
+    console.log(placeData);
+    document.getElementById("lugar").textContent =
+      placeData.name + ", " + placeData.state + ", " + placeData.country;
     document.getElementById("nueva-ubicacion").textContent =
-      "Nueva ubicación: " + placeData.formatted_address;
+      "Nueva ubicación: " +
+      placeData.name +
+      ", " +
+      placeData.state +
+      ", " +
+      placeData.country;
 
     userWeatherData = await getUserWeatherData(lat, lng);
     renderWeatherData(userWeatherData);
@@ -174,7 +182,7 @@ textToSearch.addEventListener("keyup", (e) => {
   }
 });
 
-//hace el update del horario de acuerdo a la time zone de la ubicación
+// hace el update del horario de acuerdo a la time zone de la ubicación
 // para lo cual tiene que tener en cuenta rawOffset (diferencia en
 // milisegundos con la UTC) y también dstOffset (diferencia si hay
 // horario adelantado o atrasado según el momento del año.
