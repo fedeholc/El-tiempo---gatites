@@ -1,4 +1,4 @@
-# El tiempo & gatites
+# Pronóstico del tiempo
 Una app hecha para aprender async y await con APIs.
 
 ## Autor:
